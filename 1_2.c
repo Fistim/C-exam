@@ -1,26 +1,24 @@
-#include <stdlib.h> 
 #include <stdio.h>
-#include <locale.h>
-int main()
+
+/*
+(x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y)
+(x2 - x) * (y3 - y2) - (x3 - x2) * (y2 - y)
+(x3 - x) * (y1 - y3) - (x1 - x3) * (y3 - y)
+*/
+
+int main(void)
 {
-	setlocale(LC_ALL, "rus");
-	float x1, x2, x3, x4, y1, y2, x, y; 
-x1 = -1; 
-x2 = 1; 
-x3= -2;
-x4= 2;
-y1 = -3; 
-y2 = 2; 
-printf("\n\tДана область от (-1;1)  и от (-2;2) до (-3;2) ");
-printf ("\nX: ");
-scanf("%f",&x);
-printf ("Y: ");
-scanf("%f",&y);
-if ((-2 <= x && 2 >= x && -3 <= y && 2 >= y) || (-1 >= x && 1 <= x) || (x==-2 && y==-3) || (x==2 && y==-3) || (x==0 && y==2))
-{
-printf("\n\tTochka prinadlezit"); 
-}
-else
-printf("\n\tTochka ne prinadlezit");
-return 0;
+	float fp, sp, tp;
+	float x, y; 
+	printf("Enter coord X: ");
+	scanf("%f%f", &x, &y);
+	fp = -5*(0 - x) - 2*(2 - y);
+	sp = -6*(2 - x) - -4*(-3 - y);
+	tp = -1*(-2 - x) - -2*(-3 - y);
+	if((fp>0 && sp>0 && tp>0) || (fp<0 && sp<0 && tp<0) || fp==0 || sp==0 || tp==0){
+		printf("Point is inside of triangle.");
+	}
+	else
+		printf("Point is outside of triangle.");
+	return 0;
 }
