@@ -7,7 +7,7 @@
 #define k 8
 int main()
 {
-	int i,j,a,rez;
+	int i,j,a,z;
 	int min;
 	int max=0;
 	int Array[n][m];
@@ -39,18 +39,23 @@ int main()
 		}
 	}
 	printf ("\nМинимальный элемент: %d %d %d", min,a,max);
-	rez=max;
 	for (i=0;i<n;i++)
 	{
 		for (j=0;j<m;j++)
 		{
-			if (Array[i][j]==Array[i][a])
+			if (Array[i][j]==Array[i][a] && j==a)
 			{
 				new_Array[k]=Array[i][j];
 				printf ("\n[%d] : %d", j,new_Array[k]);
 			}
 		}
 	}
-	printf ("\n%d", rez);
+	printf ("\n");
+	for (i=0;i<n;i++)
+	{
+		z=0;
+		z=new_Array[i]*max;
+		printf ("\n%d", z);
+	}
     return 0;
 }
