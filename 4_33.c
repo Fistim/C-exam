@@ -29,9 +29,9 @@ int main ()
 	n=6;
 	for (i=0;i<n;i++)
 	{
-		z[i]=a[i];
-		if (z[i]%2!=0)
+		if (a[i]%2!=0)
 		{
+			z[i]=a[i];
 			printf ("%d", z[i]);
 		}
 	}
